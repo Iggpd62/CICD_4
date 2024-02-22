@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches:
@@ -6,17 +7,21 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Include CI template
         uses: actions/checkout@v2
         with:
-          repository: your-username/ci-templates-repo
+          repository: Iggpd62/ci_templates
           ref: main
           path: .github/workflows/main.yml
+
       - name: Run CI
         run: echo "Running CI"
